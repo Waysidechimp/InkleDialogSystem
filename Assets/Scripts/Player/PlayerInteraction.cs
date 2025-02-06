@@ -57,8 +57,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(focusedInteractable != null && PlayerState.currentState == PlayerState.PlayerStates.Playing)
         {
-            string dataPath = "Assets/Scripts/DialogueSystem/ScriptableObjects/" + focusedInteractable.name + "_InkScript.asset";
-            InkScript inkScript = (InkScript)AssetDatabase.LoadAssetAtPath(dataPath, typeof(InkScript));
+            string dataPath = "ScriptableObjects/" + focusedInteractable.name + "_InkScript";
+            InkScript inkScript = Resources.Load<InkScript>(dataPath);
             interactionEvent?.Invoke(inkScript, EventArgs.Empty);
         }
     }
